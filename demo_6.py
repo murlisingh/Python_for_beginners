@@ -2,16 +2,12 @@ from tkinter import *
 
 root = Tk()
 
-C = Canvas(root, bg='yellow')
+sb = Scrollbar(root)
+sb.pack(side=RIGHT, fill=Y)
+mylist = Listbox(root, yscrollcommand=sb.set)
+for line in range(100):
+    mylist.insert(END, 'Hi '+str(line))
+mylist.pack(side=LEFT, fill=Y)
+sb.configure(command=mylist.yview)
 
-coord = 10, 50, 240, 210
-arc = C.create_arc(coord, start=0, extent=300, fill="red")
-
-C.pack()
 root.mainloop()
-
-# create_arc
-# create_image
-# create_line
-# create_oval
-# create_polygon

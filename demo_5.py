@@ -1,30 +1,15 @@
-# login layout
+# It is used to provide a graphical slider that allows to select any value from that scale.
 
 from tkinter import *
 
 root = Tk()
-root.title('My App')
-root.configure(background='#EEEEEE')
 
-userL = Label(root, text='User Name: ')
-passL = Label(root, text='Password: ')
-userL.grid(row=1, column=0, sticky=E)
-passL.grid(row=2, column=0, sticky=E)
+scale1 = Scale(root, from_=0, to=50)
+scale1.pack()
 
-userE = Entry(root)
-passE = Entry(root, show='*')
-userE.grid(row=1, column=1)
-passE.grid(row=2, column=1)
+scale2 = Scale(root, from_=0, to=50, \
+               orient=HORIZONTAL)
+scale2.pack()
 
-rememberCb = Checkbutton(root, text='Remember this login')
-rememberCb.grid(row=3, columnspan=2)
-
-submitB = Button(root, text='Submit', bg='green',\
-                 activebackground='yellow', \
-                 activeforeground='white')
-exitB = Button(root, text='Log Out', \
-               command=root.destroy)
-submitB.grid(row=4, column=1, sticky=W)
-exitB.grid(row=4, column=1, sticky=E)
 
 root.mainloop()

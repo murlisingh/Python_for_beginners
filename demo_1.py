@@ -2,9 +2,16 @@ from tkinter import *
 
 root = Tk()
 
-hwL = Label(root, text='Hello World!!')
+textT = Text(root)
 
-hwL.pack()
+textT.configure(height=10, width=20)
+
+textT.pack()
+
+textT.insert(END, 'hi\n')
+
+textT.insert(END, 'how are you')
+
+textT.insert(1.0, 'hello, ')
 
 root.mainloop()
-

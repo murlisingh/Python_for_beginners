@@ -1,40 +1,22 @@
-# Entry(), Button(), CheckButton(), Listbox()
-
 from tkinter import *
 
+
+def fun():
+    if v.get() == 1:
+        lblL.configure(text='You pressed radiobutton 1')
+    else:
+        lblL.configure(text='You pressed radiobutton 2')
+
+
 root = Tk()
-root.title('My App')
-root.configure(background='blue')
 
-userL = Label(root, text='User Name: ')
-passL = Label(root, text='Password: ')
-userL.pack()
-passL.pack()
+v = IntVar()
+Radiobutton(root, text='DIT', variable=v, \
+            value=1, command=fun).pack(anchor=W)
+Radiobutton(root, text='UIT', variable=v, \
+            value=2, command=fun).pack(anchor=W)
 
-userE = Entry(root)
-passE = Entry(root, show='*')
-userE.pack()
-passE.pack()
-
-countryLb = Listbox(root)
-countryLb.insert(1, 'India')
-countryLb.insert(2, 'Sri Lanka')
-countryLb.insert(3, 'Bangladesh')
-countryLb.insert(4, 'Nepal')
-countryLb.insert(5, 'Bhutan')
-countryLb.insert(6, 'Pakistan')
-countryLb.insert(7, 'China')
-countryLb.pack()
-
-rememberCb = Checkbutton(root, text='Remember this login')
-rememberCb.pack()
-
-submitB = Button(root, text='Submit', bg='green',\
-                 activebackground='yellow', \
-                 activeforeground='white')
-exitB = Button(root, text='exit', width=25, \
-               command=root.destroy)
-submitB.pack()
-exitB.pack()
+lblL = Label(root)
+lblL.pack()
 
 root.mainloop()

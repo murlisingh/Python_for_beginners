@@ -1,26 +1,19 @@
-# Customizing root and Label + geometry
-
 from tkinter import *
 
 root = Tk()
 
-root.title('My App')
+menuM = Menu(root)
+root.configure(menu=menuM)
 
-root.geometry('300x300')
+fileM = Menu(menuM)
+menuM.add_cascade(label='File', menu=fileM)
+fileM.add_command(label='New')
+fileM.add_command(label='Open...')
+fileM.add_separator()
+fileM.add_command(label='Exit', command=root.destroy)
 
-root.configure(background='blue')
-
-hwL = Label(root)
-
-hwL.configure(text='Hello World!!', bg='blue',\
-              font='Times 25 bold underline')
-
-hwL.pack()
+helpM = Menu(menuM)
+menuM.add_cascade(label='Help', menu=helpM)
+helpM.add_command(label='About')
 
 root.mainloop()
-
-
-# ***************************************************************
-# geometry('widhtxheight') -> 'x' is lower case, dont put spaces in between
-
-# ***************************************************************
